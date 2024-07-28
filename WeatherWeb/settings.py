@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-x!lyay=*6a&*i)%+@bo$03suga_-*18-#@a#7em7utl%z2g$mg
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+# Use specific domain name of backend server or K8S services components is better than allow all domain names.
 ALLOWED_HOSTS = ['*']
 
 
