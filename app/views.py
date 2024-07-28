@@ -3,10 +3,21 @@ from django.http import JsonResponse
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
+# 這些建議都加上，不開頁面、禁用GPU加速等等
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")  
+options.add_argument("--disable-gpu") 
+options.add_argument("--disable-extensions")
+options.add_argument("--disable-infobars")
+options.add_argument("--start-maximized")
+options.add_argument("--disable-notifications")
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+
 # Create your views here.
 def taiwan(request):
     url = 'https://www.cwa.gov.tw/V8/C/W/County/index.html'
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options = options)
     driver.get(url)
     sp = BeautifulSoup(driver.page_source, 'html.parser')
 
@@ -25,7 +36,7 @@ def taiwan(request):
 
 def us(request):
     url = 'https://www.accuweather.com/en/us/united-states-weather#google_vignette'
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options = options)
     driver.get(url)
     sp = BeautifulSoup(driver.page_source, 'html.parser')
 
