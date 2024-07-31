@@ -28,6 +28,15 @@ DEBUG = True
 # Use specific domain name of backend server or K8S services components is better than allow all domain names.
 ALLOWED_HOSTS = ['*']
 
+# Django cors
+CORS_ORIGIN_ALLOW_ALL = True
+
+# If CORS_ORIGIN_ALLOW_ALL = False, allow following URL.
+# CORS_ORIGIN_WHITELIST = []
+
+CORS_ALLOW_METHODS = ["GET"]
+
+CORS_ALLOW_HEADERS = ["*"]
 
 # Application definition
 
@@ -38,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
 
 ROOT_URLCONF = 'WeatherWeb.urls'
