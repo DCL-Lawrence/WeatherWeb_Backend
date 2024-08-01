@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
-# 這些建議都加上，不開頁面、禁用GPU加速等等
+# Chrome options
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")  
 options.add_argument("--disable-gpu") 

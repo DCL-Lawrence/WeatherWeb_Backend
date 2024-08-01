@@ -26,13 +26,13 @@ SECRET_KEY = 'django-insecure-x!lyay=*6a&*i)%+@bo$03suga_-*18-#@a#7em7utl%z2g$mg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # Use specific domain name of backend server or K8S services components is better than allow all domain names.
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.example.com']
 
 # Django cors
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
 # If CORS_ORIGIN_ALLOW_ALL = False, allow following URL.
-# CORS_ORIGIN_WHITELIST = []
+CORS_ORIGIN_WHITELIST = ['www.example.com']
 
 CORS_ALLOW_METHODS = ["GET"]
 
